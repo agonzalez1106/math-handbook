@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Violet's 4th Grade Math Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF8EC;
+    --paper: #FFFEF7;
+    --ink: #2C2416;
+    --berry: #D7456E;
+    --berry-deep: #A8294D;
+    --tangerine: #F58A3D;
+    --sun: #FFD23F;
+    --mint: #4FB286;
+    --sky: #5DA9E9;
+    --plum: #6B4E8B;
+    --shadow: rgba(44, 36, 22, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 10% 20%, rgba(255, 210, 63, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(215, 69, 110, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(79, 178, 134, 0.05) 0%, transparent 50%);
+  }
+
+  .hero {
+    text-align: center;
+    padding: 60px 24px 40px;
+    background: linear-gradient(135deg, var(--berry) 0%, var(--tangerine) 50%, var(--sun) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid var(--ink);
+  }
+
+  .hero::before {
+    content: "✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦";
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    letter-spacing: 20px;
+    opacity: 0.3;
+  }
+
+  .hero-eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.95;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  .toc {
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 48px;
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .toc h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--berry-deep);
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+  }
+
+  .toc-item {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+
+  .toc-item:hover {
+    background: var(--sun);
+    border-color: var(--ink);
+  }
+
+  .topic {
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 32px;
+    box-shadow: 6px 6px 0 var(--ink);
+    scroll-margin-top: 20px;
+  }
+
+  .topic-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px dashed var(--ink);
+  }
+
+  .topic-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: white;
+    background: var(--berry);
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    line-height: 1;
+  }
+
+  .topic:nth-child(odd) .topic-number { background: var(--berry); }
+  .topic:nth-child(even) .topic-number { background: var(--mint); }
+  .topic:nth-child(3n) .topic-number { background: var(--sky); }
+  .topic:nth-child(4n) .topic-number { background: var(--tangerine); }
+  .topic:nth-child(5n) .topic-number { background: var(--plum); }
+
+  .topic-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .topic-subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--berry-deep);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .key-idea {
+    background: var(--sun);
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-weight: 700;
+    font-size: 17px;
+    position: relative;
+  }
+
+  .key-idea::before {
+    content: "💡";
+    margin-right: 8px;
+    font-size: 20px;
+  }
+
+  .example {
+    background: #F4FAFE;
+    border: 2px solid var(--sky);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .example-label {
+    font-weight: 800;
+    color: var(--sky);
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .example p { margin-bottom: 8px; }
+  .example p:last-child { margin-bottom: 0; }
+
+  .tip {
+    background: #EDFAF3;
+    border-left: 4px solid var(--mint);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .tip-label {
+    font-weight: 800;
+    color: var(--mint);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .warn {
+    background: #FFF0F4;
+    border-left: 4px solid var(--berry);
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .warn-label {
+    font-weight: 800;
+    color: var(--berry);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .visual {
+    margin: 20px 0;
+    padding: 20px;
+    background: white;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  p { margin-bottom: 12px; }
+
+  strong { color: var(--berry-deep); font-weight: 800; }
+
+  .math {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    background: white;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1.5px solid var(--ink);
+    display: inline-block;
+    margin: 2px;
+  }
+
+  ul { padding-left: 24px; margin: 12px 0; }
+  ul li { margin-bottom: 6px; }
+  ol { padding-left: 24px; margin: 12px 0; }
+  ol li { margin-bottom: 6px; }
+
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    margin: 0 2px;
+    line-height: 1;
+  }
+  .frac-top {
+    border-bottom: 2px solid currentColor;
+    padding: 0 4px 1px;
+  }
+  .frac-bot { padding: 1px 4px 0; }
+
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-weight: 700;
+    color: var(--berry-deep);
+    font-size: 18px;
+  }
+
+  .footer-stars {
+    font-size: 24px;
+    margin: 12px 0;
+    letter-spacing: 8px;
+  }
+
+  /* SVG visual styling */
+  svg { max-width: 100%; height: auto; }
+
+  .quad-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+
+  .quad-item {
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Practice Test 1 · Study Companion</div>
+  <h1>Math Topics<br>You've Got This!</h1>
+  <p>A friendly guide to every type of question on your test — with pictures, examples, and tips you can actually use.</p>
+</div>
+
+<div class="container">
+
+  <nav class="toc">
+    <h2>What's Inside</h2>
+    <div class="toc-grid">
+      <a class="toc-item" href="#t1">1. Place Value & Rounding</a>
+      <a class="toc-item" href="#t2">2. Comparing Big Numbers</a>
+      <a class="toc-item" href="#t3">3. Big Multiplication</a>
+      <a class="toc-item" href="#t4">4. Division & Remainders</a>
+      <a class="toc-item" href="#t5">5. Multi-Step Word Problems</a>
+      <a class="toc-item" href="#t6">6. "Times As Many"</a>
+      <a class="toc-item" href="#t7">7. Factors & Multiples</a>
+      <a class="toc-item" href="#t8">8. Number Patterns</a>
+      <a class="toc-item" href="#t9">9. Equivalent Fractions</a>
+      <a class="toc-item" href="#t10">10. Comparing Fractions</a>
+      <a class="toc-item" href="#t11">11. Adding/Subtracting Fractions</a>
+      <a class="toc-item" href="#t12">12. Fraction × Whole Number</a>
+      <a class="toc-item" href="#t13">13. Quadrilaterals</a>
+      <a class="toc-item" href="#t14">14. Lines of Symmetry</a>
+      <a class="toc-item" href="#t15">15. Angles</a>
+      <a class="toc-item" href="#t16">16. Triangles</a>
+      <a class="toc-item" href="#t17">17. Area & Perimeter</a>
+      <a class="toc-item" href="#t18">18. Line Plots</a>
+    </div>
+  </nav>
+
+  <!-- TOPIC 1 -->
+  <section class="topic" id="t1">
+    <div class="topic-header">
+      <div class="topic-number">1</div>
+      <div>
+        <div class="topic-subtitle">Numbers & Operations</div>
+        <div class="topic-title">Place Value & Rounding</div>
+      </div>
+    </div>
+
+    <p>Every digit in a number has a <strong>place</strong>, and each place is worth <strong>10 times more</strong> than the place to its right.</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+        <!-- Place value chart for 589,310 -->
+        <g font-family="Nunito, sans-serif" font-weight="700">
+          <rect x="20" y="20" width="80" height="60" fill="#FFD23F" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="60" y="45" text-anchor="middle" font-size="11" fill="#2C2416">HUNDRED</text>
+          <text x="60" y="60" text-anchor="middle" font-size="11" fill="#2C2416">THOUSANDS</text>
+          <text x="60" y="78" text-anchor="middle" font-size="11" fill="#2C2416">100,000s</text>
+
+          <rect x="105" y="20" width="80" height="60" fill="#F58A3D" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="145" y="45" text-anchor="middle" font-size="11" fill="white">TEN</text>
+          <text x="145" y="60" text-anchor="middle" font-size="11" fill="white">THOUSANDS</text>
+          <text x="145" y="78" text-anchor="middle" font-size="11" fill="white">10,000s</text>
+
+          <rect x="190" y="20" width="80" height="60" fill="#D7456E" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="230" y="55" text-anchor="middle" font-size="12" fill="white">THOUSANDS</text>
+          <text x="230" y="72" text-anchor="middle" font-size="11" fill="white">1,000s</text>
+
+          <rect x="275" y="20" width="80" height="60" fill="#4FB286" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="315" y="55" text-anchor="middle" font-size="12" fill="white">HUNDREDS</text>
+          <text x="315" y="72" text-anchor="middle" font-size="11" fill="white">100s</text>
+
+          <rect x="360" y="20" width="80" height="60" fill="#5DA9E9" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="400" y="55" text-anchor="middle" font-size="12" fill="white">TENS</text>
+          <text x="400" y="72" text-anchor="middle" font-size="11" fill="white">10s</text>
+
+          <rect x="445" y="20" width="80" height="60" fill="#6B4E8B" stroke="#2C2416" stroke-width="2.5" rx="6"/>
+          <text x="485" y="55" text-anchor="middle" font-size="12" fill="white">ONES</text>
+          <text x="485" y="72" text-anchor="middle" font-size="11" fill="white">1s</text>
+
+          <!-- Digits of 589,310 -->
+          <text x="60" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">5</text>
+          <text x="145" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">8</text>
+          <text x="230" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">9</text>
+          <text x="315" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">3</text>
+          <text x="400" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">1</text>
+          <text x="485" y="125" text-anchor="middle" font-size="38" font-weight="900" fill="#2C2416" font-family="Fraunces, serif">0</text>
+
+          <text x="270" y="165" text-anchor="middle" font-size="14" fill="#A8294D" font-weight="800">The number 589,310</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">A digit one place to the LEFT is worth <strong>10 times more</strong>. So the 8 in 589,310 (ten-thousands) is 10× the 8 in 598,301 (thousands).</div>
+
+    <div class="example">
+      <div class="example-label">★ Example</div>
+      <p><strong>Round 353,795 to the nearest ten-thousand.</strong></p>
+      <p>1️⃣ Find the ten-thousands digit: <span class="math">35<u>3</u>,795</span> → the 5 is in the ten-thousands spot.</p>
+      <p>2️⃣ Look at the next digit to the right (the 3 in thousands).</p>
+      <p>3️⃣ Less than 5? Round DOWN. 5 or more? Round UP. The 3 says round down.</p>
+      <p>✅ Answer: <strong>350,000</strong></p>
+    </div>
+
+    <div class="tip">
+      <div class="tip-label">★ Memory Trick</div>
+      <p>"5 or more, raise the score. 4 or less, let it rest."</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 2 -->
+  <section class="topic" id="t2">
+    <div class="topic-header">
+      <div class="topic-number">2</div>
+      <div>
+        <div class="topic-subtitle">Numbers & Operations</div>
+        <div class="topic-title">Comparing Big Numbers</div>
+      </div>
+    </div>
+
+    <p>Use these symbols to compare numbers:</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Fraunces, serif" font-weight="900">
+          <circle cx="80" cy="60" r="40" fill="#FFD23F" stroke="#2C2416" stroke-width="3"/>
+          <text x="80" y="75" text-anchor="middle" font-size="42" fill="#2C2416">&gt;</text>
+          <text x="80" y="115" text-anchor="middle" font-size="13" font-family="Nunito" font-weight="700" fill="#2C2416">greater than</text>
+
+          <circle cx="250" cy="60" r="40" fill="#4FB286" stroke="#2C2416" stroke-width="3"/>
+          <text x="250" y="75" text-anchor="middle" font-size="42" fill="white">&lt;</text>
+          <text x="250" y="115" text-anchor="middle" font-size="13" font-family="Nunito" font-weight="700" fill="#2C2416">less than</text>
+
+          <circle cx="420" cy="60" r="40" fill="#D7456E" stroke="#2C2416" stroke-width="3"/>
+          <text x="420" y="72" text-anchor="middle" font-size="38" fill="white">=</text>
+          <text x="420" y="115" text-anchor="middle" font-size="13" font-family="Nunito" font-weight="700" fill="#2C2416">equal to</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">The "alligator" eats the BIGGER number. The open mouth always faces the larger one!</div>
+
+    <div class="example">
+      <div class="example-label">★ How to compare 46,572 and 37,512</div>
+      <ol>
+        <li>Line them up by place value</li>
+        <li>Start from the LEFT (biggest place)</li>
+        <li>Compare digit by digit until they're different</li>
+      </ol>
+      <p><span class="math">4</span>6,572 vs <span class="math">3</span>7,512 → 4 is bigger than 3, so <strong>46,572 &gt; 37,512</strong></p>
+    </div>
+  </section>
+
+  <!-- TOPIC 3 -->
+  <section class="topic" id="t3">
+    <div class="topic-header">
+      <div class="topic-number">3</div>
+      <div>
+        <div class="topic-subtitle">Numbers & Operations</div>
+        <div class="topic-title">Big Multiplication</div>
+      </div>
+    </div>
+
+    <p>For multi-digit multiplication like <span class="math">48 × 28</span>, use the <strong>area model</strong> or <strong>standard algorithm</strong>.</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito, sans-serif" font-weight="700">
+          <text x="240" y="25" text-anchor="middle" font-size="16" fill="#A8294D" font-weight="800">AREA MODEL: 48 × 28</text>
+
+          <!-- Header -->
+          <text x="160" y="55" text-anchor="middle" font-size="14" fill="#2C2416">40</text>
+          <text x="320" y="55" text-anchor="middle" font-size="14" fill="#2C2416">8</text>
+          <text x="60" y="115" text-anchor="middle" font-size="14" fill="#2C2416">20</text>
+          <text x="60" y="190" text-anchor="middle" font-size="14" fill="#2C2416">8</text>
+
+          <!-- Boxes -->
+          <rect x="100" y="70" width="160" height="80" fill="#FFD23F" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="180" y="100" text-anchor="middle" font-size="13">20 × 40</text>
+          <text x="180" y="125" text-anchor="middle" font-size="22" font-family="Fraunces" font-weight="900">800</text>
+
+          <rect x="260" y="70" width="80" height="80" fill="#F58A3D" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="300" y="100" text-anchor="middle" font-size="13" fill="white">20 × 8</text>
+          <text x="300" y="125" text-anchor="middle" font-size="22" font-family="Fraunces" font-weight="900" fill="white">160</text>
+
+          <rect x="100" y="150" width="160" height="60" fill="#5DA9E9" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="180" y="175" text-anchor="middle" font-size="13" fill="white">8 × 40</text>
+          <text x="180" y="195" text-anchor="middle" font-size="20" font-family="Fraunces" font-weight="900" fill="white">320</text>
+
+          <rect x="260" y="150" width="80" height="60" fill="#4FB286" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="300" y="175" text-anchor="middle" font-size="13" fill="white">8 × 8</text>
+          <text x="300" y="195" text-anchor="middle" font-size="20" font-family="Fraunces" font-weight="900" fill="white">64</text>
+
+          <!-- Sum -->
+          <text x="395" y="100" font-size="14" fill="#2C2416">800</text>
+          <text x="395" y="120" font-size="14" fill="#2C2416">160</text>
+          <text x="395" y="140" font-size="14" fill="#2C2416">320</text>
+          <text x="395" y="160" font-size="14" fill="#2C2416">+ 64</text>
+          <line x1="385" y1="167" x2="450" y2="167" stroke="#2C2416" stroke-width="2"/>
+          <text x="395" y="190" font-size="20" font-family="Fraunces" font-weight="900" fill="#A8294D">1,344</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">Break each number into its place values, multiply each piece, then add them all up!</div>
+
+    <div class="tip">
+      <div class="tip-label">★ Pro Tip</div>
+      <p>Always estimate first! 48 × 28 is close to 50 × 30 = 1,500. So your answer should be near 1,500. ✓ 1,344 makes sense!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 4 -->
+  <section class="topic" id="t4">
+    <div class="topic-header">
+      <div class="topic-number">4</div>
+      <div>
+        <div class="topic-subtitle">Numbers & Operations</div>
+        <div class="topic-title">Division & Remainders</div>
+      </div>
+    </div>
+
+    <p>When you divide and there's something left over, that's the <strong>remainder</strong>.</p>
+
+    <div class="example">
+      <div class="example-label">★ Example: 439 ÷ 7</div>
+      <p>How many groups of 7 fit into 439?</p>
+      <p><span class="math">7 × 60 = 420</span> (close, but we have 19 left)</p>
+      <p><span class="math">7 × 2 = 14</span> (now 19 − 14 = 5 left)</p>
+      <p>So <strong>439 ÷ 7 = 62 remainder 5</strong> 🌱 5 plants left over!</p>
+    </div>
+
+    <div class="warn">
+      <div class="warn-label">★ Watch Out!</div>
+      <p>Read the question carefully — it changes what to do with the remainder:</p>
+      <ul>
+        <li><strong>"How many left over?"</strong> → answer is the remainder</li>
+        <li><strong>"How many vans needed?"</strong> → round UP (you need an extra van for the leftovers!)</li>
+        <li><strong>"How many full bags?"</strong> → ignore the remainder</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Van Problem</div>
+      <p>38 people ÷ 8 per van = 4 remainder 6.</p>
+      <p>You can't leave 6 people behind! You need <strong>5 vans</strong> (4 full + 1 for the extras).</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 5 -->
+  <section class="topic" id="t5">
+    <div class="topic-header">
+      <div class="topic-number">5</div>
+      <div>
+        <div class="topic-subtitle">Word Problems</div>
+        <div class="topic-title">Multi-Step Word Problems</div>
+      </div>
+    </div>
+
+    <p>Some problems have <strong>more than one step</strong>. Slow down and tackle one piece at a time.</p>
+
+    <div class="example">
+      <div class="example-label">★ Marisol's Order</div>
+      <p>4 tacos at $4 each + 9 tamales at $3 each + 1 horchata for $3. Paid with $50. How much change?</p>
+      <ol>
+        <li>Tacos: 4 × $4 = <strong>$16</strong></li>
+        <li>Tamales: 9 × $3 = <strong>$27</strong></li>
+        <li>Horchata: <strong>$3</strong></li>
+        <li>Total cost: $16 + $27 + $3 = <strong>$46</strong></li>
+        <li>Change: $50 − $46 = <strong>$4</strong> ✓</li>
+      </ol>
+    </div>
+
+    <div class="key-idea">Underline what the question is REALLY asking. Then plan your steps before you start calculating.</div>
+  </section>
+
+  <!-- TOPIC 6 -->
+  <section class="topic" id="t6">
+    <div class="topic-header">
+      <div class="topic-number">6</div>
+      <div>
+        <div class="topic-subtitle">Word Problems</div>
+        <div class="topic-title">"Times As Many" Comparisons</div>
+      </div>
+    </div>
+
+    <p>When you see <strong>"times as many"</strong> or <strong>"times as much,"</strong> that means MULTIPLY.</p>
+
+    <div class="example">
+      <div class="example-label">★ Michael's Money</div>
+      <p>Michael earned $27 running errands. He earned $12 LESS than that washing windows. He earned 3 TIMES AS MUCH walking dogs as he earned washing windows.</p>
+      <ol>
+        <li>Errands = $27</li>
+        <li>Windows = $27 − $12 = <strong>$15</strong></li>
+        <li>Dogs = 3 × $15 = <strong>$45</strong> ✓</li>
+      </ol>
+    </div>
+
+    <div class="warn">
+      <div class="warn-label">★ Tricky Chains!</div>
+      <p>If Erika has 6 postcards, Tanya has 2× Erika, and Tanya has 4× Nathan... work it step by step:</p>
+      <ul>
+        <li>Tanya = 2 × 6 = 12</li>
+        <li>Tanya = 4 × Nathan, so Nathan = 12 ÷ 4 = 3</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TOPIC 7 -->
+  <section class="topic" id="t7">
+    <div class="topic-header">
+      <div class="topic-number">7</div>
+      <div>
+        <div class="topic-subtitle">Numbers & Operations</div>
+        <div class="topic-title">Factors & Multiples</div>
+      </div>
+    </div>
+
+    <div class="key-idea"><strong>Factors</strong> are numbers you multiply TO GET a number. <strong>Multiples</strong> are what you GET when you multiply BY a number.</div>
+
+    <div class="example">
+      <div class="example-label">★ Factors of 12</div>
+      <p>What numbers multiply to make 12? <span class="math">1 × 12</span>, <span class="math">2 × 6</span>, <span class="math">3 × 4</span></p>
+      <p>So factors of 12 are: <strong>1, 2, 3, 4, 6, 12</strong></p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Multiples of 4</div>
+      <p>Count by 4s: <strong>4, 8, 12, 16, 20, 24, 28...</strong> (the times-4 list!)</p>
+    </div>
+
+    <div class="tip">
+      <div class="tip-label">★ Even Number Multiples</div>
+      <p>Multiples of any EVEN number are ALWAYS EVEN. So 33 cannot be a multiple of 2, 4, 6, or 8 — it's odd!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 8 -->
+  <section class="topic" id="t8">
+    <div class="topic-header">
+      <div class="topic-number">8</div>
+      <div>
+        <div class="topic-subtitle">Algebraic Thinking</div>
+        <div class="topic-title">Number Patterns</div>
+      </div>
+    </div>
+
+    <p>Find the <strong>rule</strong>, then apply it to find the next number — or a faraway number.</p>
+
+    <div class="example">
+      <div class="example-label">★ Pattern: 7, 14, 21, 28, 35...</div>
+      <p>Rule: <strong>"Add 7"</strong> (or just count by 7s — multiples of 7!).</p>
+      <p>What's the 20th number? It's <span class="math">7 × 20 = <strong>140</strong></span>.</p>
+    </div>
+
+    <div class="tip">
+      <div class="tip-label">★ Shortcut</div>
+      <p>If a pattern starts at 7 and adds 7 each time, the Nth number is <strong>N × 7</strong>. The 20th is 20 × 7 = 140!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 9 -->
+  <section class="topic" id="t9">
+    <div class="topic-header">
+      <div class="topic-number">9</div>
+      <div>
+        <div class="topic-subtitle">Fractions</div>
+        <div class="topic-title">Equivalent Fractions</div>
+      </div>
+    </div>
+
+    <p><strong>Equivalent fractions</strong> are different fractions that show the SAME amount.</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- 1/2 -->
+          <rect x="20" y="30" width="120" height="60" fill="white" stroke="#2C2416" stroke-width="2.5"/>
+          <rect x="20" y="30" width="60" height="60" fill="#D7456E"/>
+          <line x1="80" y1="30" x2="80" y2="90" stroke="#2C2416" stroke-width="2"/>
+          <text x="80" y="115" text-anchor="middle" font-size="20" font-family="Fraunces" font-weight="900">1/2</text>
+
+          <text x="170" y="68" text-anchor="middle" font-size="32" font-family="Fraunces" font-weight="900" fill="#A8294D">=</text>
+
+          <!-- 2/4 -->
+          <rect x="200" y="30" width="120" height="60" fill="white" stroke="#2C2416" stroke-width="2.5"/>
+          <rect x="200" y="30" width="60" height="60" fill="#4FB286"/>
+          <line x1="230" y1="30" x2="230" y2="90" stroke="#2C2416" stroke-width="1.5"/>
+          <line x1="260" y1="30" x2="260" y2="90" stroke="#2C2416" stroke-width="2"/>
+          <line x1="290" y1="30" x2="290" y2="90" stroke="#2C2416" stroke-width="1.5"/>
+          <text x="260" y="115" text-anchor="middle" font-size="20" font-family="Fraunces" font-weight="900">2/4</text>
+
+          <text x="350" y="68" text-anchor="middle" font-size="32" font-family="Fraunces" font-weight="900" fill="#A8294D">=</text>
+
+          <!-- 4/8 -->
+          <rect x="380" y="30" width="120" height="60" fill="white" stroke="#2C2416" stroke-width="2.5"/>
+          <rect x="380" y="30" width="60" height="60" fill="#5DA9E9"/>
+          <g stroke="#2C2416" stroke-width="1.5">
+            <line x1="395" y1="30" x2="395" y2="90"/>
+            <line x1="410" y1="30" x2="410" y2="90"/>
+            <line x1="425" y1="30" x2="425" y2="90"/>
+            <line x1="440" y1="30" x2="440" y2="90" stroke-width="2"/>
+            <line x1="455" y1="30" x2="455" y2="90"/>
+            <line x1="470" y1="30" x2="470" y2="90"/>
+            <line x1="485" y1="30" x2="485" y2="90"/>
+          </g>
+          <text x="440" y="115" text-anchor="middle" font-size="20" font-family="Fraunces" font-weight="900">4/8</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">To make an equivalent fraction, <strong>multiply (or divide) the top AND bottom by the same number</strong>.</div>
+
+    <div class="example">
+      <div class="example-label">★ Example</div>
+      <p><span class="math">1/2 × 3/3 = 3/6</span> — so 1/2 and 3/6 are equivalent!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 10 -->
+  <section class="topic" id="t10">
+    <div class="topic-header">
+      <div class="topic-number">10</div>
+      <div>
+        <div class="topic-subtitle">Fractions</div>
+        <div class="topic-title">Comparing Fractions</div>
+      </div>
+    </div>
+
+    <p>To compare fractions with <strong>different denominators</strong> (like 6/8 vs 7/12), give them the same bottom number.</p>
+
+    <div class="example">
+      <div class="example-label">★ Compare 6/8 and 7/12</div>
+      <p>Common denominator = 24</p>
+      <p><span class="math">6/8 = 18/24</span> &nbsp; (×3 top and bottom)</p>
+      <p><span class="math">7/12 = 14/24</span> &nbsp; (×2 top and bottom)</p>
+      <p>18/24 &gt; 14/24, so <strong>6/8 &gt; 7/12</strong> ✓</p>
+    </div>
+
+    <div class="tip">
+      <div class="tip-label">★ Benchmark Trick</div>
+      <p>Compare each fraction to <strong>1/2</strong>. 6/8 is more than half (4/8 = 1/2). 7/12 is just over half (6/12 = 1/2). 6/8 = 9/12, which is way more than 7/12!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 11 -->
+  <section class="topic" id="t11">
+    <div class="topic-header">
+      <div class="topic-number">11</div>
+      <div>
+        <div class="topic-subtitle">Fractions</div>
+        <div class="topic-title">Adding & Subtracting Fractions</div>
+      </div>
+    </div>
+
+    <div class="key-idea">When fractions have the <strong>SAME denominator</strong>, just add or subtract the TOPS. The bottom stays the same!</div>
+
+    <div class="example">
+      <div class="example-label">★ Example: 5/4 − 3/4</div>
+      <p>The bottoms match! <span class="math">5/4 − 3/4 = 2/4</span> hour</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Mixed Numbers: 2 3/8 + 3 4/8</div>
+      <p>You can change them to improper fractions first:</p>
+      <p><span class="math">2 3/8 = 19/8</span> &nbsp;&nbsp; <span class="math">3 4/8 = 28/8</span></p>
+      <p><span class="math">19/8 + 28/8 = 47/8</span></p>
+      <p>Or add the wholes and fractions separately: <span class="math">5 + 7/8 = 5 7/8</span></p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Subtracting from a Whole: 1 − 6/8</div>
+      <p>Rewrite 1 as <span class="math">8/8</span>. Then <span class="math">8/8 − 6/8 = 2/8</span> ✓</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 12 -->
+  <section class="topic" id="t12">
+    <div class="topic-header">
+      <div class="topic-number">12</div>
+      <div>
+        <div class="topic-subtitle">Fractions</div>
+        <div class="topic-title">Fraction × Whole Number</div>
+      </div>
+    </div>
+
+    <p>Multiplying a fraction by a whole number = adding the fraction to itself that many times.</p>
+
+    <div class="example">
+      <div class="example-label">★ Example: 4 × 2/3</div>
+      <p>= <span class="math">2/3 + 2/3 + 2/3 + 2/3</span></p>
+      <p>= <span class="math">8/3</span></p>
+      <p>Shortcut: multiply the top by the whole number → <span class="math">(4 × 2)/3 = 8/3</span></p>
+    </div>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 80" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <text x="20" y="30" font-size="14" fill="#2C2416">9 × 1/5 on a number line:</text>
+          <line x1="20" y1="60" x2="480" y2="60" stroke="#2C2416" stroke-width="2"/>
+          <g font-size="11" text-anchor="middle">
+            <line x1="20" y1="55" x2="20" y2="65" stroke="#2C2416" stroke-width="2"/>
+            <text x="20" y="78">0</text>
+            <line x1="71" y1="55" x2="71" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="122" y1="55" x2="122" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="173" y1="55" x2="173" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="224" y1="55" x2="224" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="275" y1="55" x2="275" y2="65" stroke="#2C2416" stroke-width="2"/>
+            <text x="275" y="78">5/5 = 1</text>
+            <line x1="326" y1="55" x2="326" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="377" y1="55" x2="377" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="428" y1="55" x2="428" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <line x1="479" y1="55" x2="479" y2="65" stroke="#2C2416" stroke-width="1"/>
+            <text x="479" y="78">9/5</text>
+          </g>
+          <!-- 9 jumps -->
+          <g fill="none" stroke="#D7456E" stroke-width="2.5">
+            <path d="M 20 55 Q 45 35 71 55"/>
+            <path d="M 71 55 Q 96 35 122 55"/>
+            <path d="M 122 55 Q 147 35 173 55"/>
+            <path d="M 173 55 Q 198 35 224 55"/>
+            <path d="M 224 55 Q 249 35 275 55"/>
+            <path d="M 275 55 Q 300 35 326 55"/>
+            <path d="M 326 55 Q 351 35 377 55"/>
+            <path d="M 377 55 Q 402 35 428 55"/>
+            <path d="M 428 55 Q 453 35 479 55"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- TOPIC 13 -->
+  <section class="topic" id="t13">
+    <div class="topic-header">
+      <div class="topic-number">13</div>
+      <div>
+        <div class="topic-subtitle">Geometry</div>
+        <div class="topic-title">Quadrilaterals</div>
+      </div>
+    </div>
+
+    <p>A <strong>quadrilateral</strong> is any 4-sided shape. They have a "family tree" — some are special types of others!</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- Quadrilateral (top) -->
+          <rect x="180" y="20" width="140" height="40" rx="8" fill="#FFD23F" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="250" y="46" text-anchor="middle" font-size="14">QUADRILATERAL</text>
+
+          <line x1="250" y1="60" x2="250" y2="80" stroke="#2C2416" stroke-width="2"/>
+
+          <!-- Parallelogram -->
+          <rect x="180" y="80" width="140" height="40" rx="8" fill="#F58A3D" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="250" y="106" text-anchor="middle" font-size="14" fill="white">PARALLELOGRAM</text>
+          <text x="335" y="105" font-size="10" fill="#2C2416">(2 pairs parallel sides)</text>
+
+          <line x1="250" y1="120" x2="250" y2="140" stroke="#2C2416" stroke-width="2"/>
+          <line x1="150" y1="135" x2="350" y2="135" stroke="#2C2416" stroke-width="2"/>
+          <line x1="150" y1="135" x2="150" y2="155" stroke="#2C2416" stroke-width="2"/>
+          <line x1="350" y1="135" x2="350" y2="155" stroke="#2C2416" stroke-width="2"/>
+
+          <!-- Rectangle (left) -->
+          <rect x="80" y="155" width="140" height="40" rx="8" fill="#5DA9E9" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="150" y="181" text-anchor="middle" font-size="14" fill="white">RECTANGLE</text>
+          <text x="80" y="208" font-size="10" fill="#2C2416">all 4 corners 90°</text>
+
+          <!-- Rhombus (right) -->
+          <rect x="280" y="155" width="140" height="40" rx="8" fill="#D7456E" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="350" y="181" text-anchor="middle" font-size="14" fill="white">RHOMBUS</text>
+          <text x="280" y="208" font-size="10" fill="#2C2416">all 4 sides equal</text>
+
+          <line x1="150" y1="195" x2="150" y2="225" stroke="#2C2416" stroke-width="2"/>
+          <line x1="350" y1="195" x2="350" y2="225" stroke="#2C2416" stroke-width="2"/>
+          <line x1="150" y1="225" x2="350" y2="225" stroke="#2C2416" stroke-width="2"/>
+          <line x1="250" y1="225" x2="250" y2="240" stroke="#2C2416" stroke-width="2"/>
+
+          <!-- Square -->
+          <rect x="180" y="240" width="140" height="40" rx="8" fill="#4FB286" stroke="#2C2416" stroke-width="2.5"/>
+          <text x="250" y="266" text-anchor="middle" font-size="14" fill="white">SQUARE</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">A <strong>square is a rectangle</strong> AND a rhombus AND a parallelogram. A <strong>rectangle is a parallelogram</strong>. Going DOWN the family tree adds rules; going UP, the rules disappear.</div>
+
+    <div class="warn">
+      <div class="warn-label">★ Tricky Test Question</div>
+      <p>"Are figures 2 and 3 the only rectangles?" If figure 1 looks like a square (a tilted square = "diamond"), it IS still a rectangle! Squares count as rectangles.</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 14 -->
+  <section class="topic" id="t14">
+    <div class="topic-header">
+      <div class="topic-number">14</div>
+      <div>
+        <div class="topic-subtitle">Geometry</div>
+        <div class="topic-title">Lines of Symmetry</div>
+      </div>
+    </div>
+
+    <p>A <strong>line of symmetry</strong> is a line you could fold on so both halves match exactly.</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- Heart with vertical line -->
+          <g transform="translate(80,80)">
+            <path d="M 0 -20 C -20 -50, -55 -50, -55 -15 C -55 10, 0 50, 0 50 C 0 50, 55 10, 55 -15 C 55 -50, 20 -50, 0 -20 Z" fill="#D7456E" stroke="#2C2416" stroke-width="2.5"/>
+            <line x1="0" y1="-55" x2="0" y2="60" stroke="#2C2416" stroke-width="2" stroke-dasharray="5,3"/>
+          </g>
+          <text x="80" y="155" text-anchor="middle" font-size="13">1 line ✓</text>
+
+          <!-- Square with 4 lines -->
+          <g transform="translate(250,80)">
+            <rect x="-40" y="-40" width="80" height="80" fill="#FFD23F" stroke="#2C2416" stroke-width="2.5"/>
+            <line x1="0" y1="-50" x2="0" y2="50" stroke="#2C2416" stroke-width="2" stroke-dasharray="5,3"/>
+            <line x1="-50" y1="0" x2="50" y2="0" stroke="#2C2416" stroke-width="2" stroke-dasharray="5,3"/>
+            <line x1="-50" y1="-50" x2="50" y2="50" stroke="#2C2416" stroke-width="2" stroke-dasharray="5,3"/>
+            <line x1="-50" y1="50" x2="50" y2="-50" stroke="#2C2416" stroke-width="2" stroke-dasharray="5,3"/>
+          </g>
+          <text x="250" y="155" text-anchor="middle" font-size="13">4 lines ✓</text>
+
+          <!-- Scalene triangle - NO symmetry -->
+          <g transform="translate(420,80)">
+            <polygon points="-40,30 50,40 -10,-40" fill="#5DA9E9" stroke="#2C2416" stroke-width="2.5"/>
+          </g>
+          <text x="420" y="155" text-anchor="middle" font-size="13">0 lines ✗</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="warn">
+      <div class="warn-label">★ Common Mistake</div>
+      <p>A diagonal line on a regular (non-square) RECTANGLE is NOT a line of symmetry. The two halves don't match if you fold!</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 15 -->
+  <section class="topic" id="t15">
+    <div class="topic-header">
+      <div class="topic-number">15</div>
+      <div>
+        <div class="topic-subtitle">Geometry</div>
+        <div class="topic-title">Angles</div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- Acute -->
+          <g transform="translate(80,100)">
+            <line x1="0" y1="0" x2="60" y2="0" stroke="#2C2416" stroke-width="3"/>
+            <line x1="0" y1="0" x2="55" y2="-40" stroke="#2C2416" stroke-width="3"/>
+            <path d="M 25 0 A 25 25 0 0 0 23 -17" fill="none" stroke="#D7456E" stroke-width="2"/>
+          </g>
+          <text x="80" y="140" text-anchor="middle" font-size="14" fill="#A8294D" font-weight="800">ACUTE</text>
+          <text x="80" y="158" text-anchor="middle" font-size="11">less than 90°</text>
+
+          <!-- Right -->
+          <g transform="translate(220,100)">
+            <line x1="0" y1="0" x2="60" y2="0" stroke="#2C2416" stroke-width="3"/>
+            <line x1="0" y1="0" x2="0" y2="-60" stroke="#2C2416" stroke-width="3"/>
+            <rect x="0" y="-12" width="12" height="12" fill="none" stroke="#4FB286" stroke-width="2"/>
+          </g>
+          <text x="220" y="140" text-anchor="middle" font-size="14" fill="#4FB286" font-weight="800">RIGHT</text>
+          <text x="220" y="158" text-anchor="middle" font-size="11">exactly 90°</text>
+
+          <!-- Obtuse -->
+          <g transform="translate(360,100)">
+            <line x1="0" y1="0" x2="60" y2="0" stroke="#2C2416" stroke-width="3"/>
+            <line x1="0" y1="0" x2="-50" y2="-30" stroke="#2C2416" stroke-width="3"/>
+            <path d="M 25 0 A 25 25 0 0 0 -22 -13" fill="none" stroke="#5DA9E9" stroke-width="2"/>
+          </g>
+          <text x="360" y="140" text-anchor="middle" font-size="14" fill="#5DA9E9" font-weight="800">OBTUSE</text>
+          <text x="360" y="158" text-anchor="middle" font-size="11">more than 90°</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">Angles can be ADDED together! If ∠AOB = 40°, ∠BOC = 60°, and ∠COD = 20°, then ∠AOD = 40 + 60 + 20 = <strong>120°</strong>.</div>
+
+    <div class="example">
+      <div class="example-label">★ Angles in a Circle</div>
+      <p>A full circle = 360°. So a 20° angle turns through <strong>20 one-degree angles</strong> (20 of the 360 little wedges in a circle).</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 16 -->
+  <section class="topic" id="t16">
+    <div class="topic-header">
+      <div class="topic-number">16</div>
+      <div>
+        <div class="topic-subtitle">Geometry</div>
+        <div class="topic-title">Triangles</div>
+      </div>
+    </div>
+
+    <p>Triangles are named by their biggest angle:</p>
+
+    <ul>
+      <li><strong>Acute triangle:</strong> ALL three angles less than 90° (e.g., 60°, 60°, 60°)</li>
+      <li><strong>Right triangle:</strong> ONE angle exactly 90° (e.g., 30°, 60°, 90°)</li>
+      <li><strong>Obtuse triangle:</strong> ONE angle MORE than 90° (e.g., 30°, 40°, 110°)</li>
+    </ul>
+
+    <div class="key-idea">All three angles of a triangle ALWAYS add up to <strong>180°</strong>.</div>
+
+    <div class="tip">
+      <div class="tip-label">★ Quick Check</div>
+      <p>30° + 40° + 110° = 180° ✓ AND 110° &gt; 90°, so this is an <strong>obtuse</strong> triangle.</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 17 -->
+  <section class="topic" id="t17">
+    <div class="topic-header">
+      <div class="topic-number">17</div>
+      <div>
+        <div class="topic-subtitle">Measurement</div>
+        <div class="topic-title">Area & Perimeter</div>
+      </div>
+    </div>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- Rectangle -->
+          <rect x="80" y="40" width="160" height="80" fill="#FFD23F" stroke="#2C2416" stroke-width="3"/>
+          <text x="160" y="30" text-anchor="middle" font-size="14">10 inches</text>
+          <text x="255" y="85" font-size="14">4 in</text>
+
+          <text x="80" y="160" font-size="13" fill="#A8294D" font-weight="800">PERIMETER</text>
+          <text x="80" y="175" font-size="12">10 + 4 + 10 + 4 = 28 in</text>
+
+          <text x="290" y="160" font-size="13" fill="#A8294D" font-weight="800">AREA</text>
+          <text x="290" y="175" font-size="12">10 × 4 = 40 sq in</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="key-idea">
+      <strong>PERIMETER</strong> = distance AROUND the shape (add all sides).<br>
+      <strong>AREA</strong> = space INSIDE the shape (length × width for rectangles).
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Working Backwards</div>
+      <p>"Area = 6 sq ft, length = 3 ft. What's the perimeter?"</p>
+      <p>Width = 6 ÷ 3 = <strong>2 ft</strong>. Perimeter = 3 + 2 + 3 + 2 = <strong>10 ft</strong> ✓</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Same Area, Different Perimeter</div>
+      <p>10 × 4 = 40 sq in (area). What other rectangle has area 40? 8 × 5 = 40 ✓ — same area, but perimeter = 26 (different!).</p>
+    </div>
+  </section>
+
+  <!-- TOPIC 18 -->
+  <section class="topic" id="t18">
+    <div class="topic-header">
+      <div class="topic-number">18</div>
+      <div>
+        <div class="topic-subtitle">Data</div>
+        <div class="topic-title">Line Plots with Fractions</div>
+      </div>
+    </div>
+
+    <p>A line plot uses Xs above a number line. Each X = one data point.</p>
+
+    <div class="visual">
+      <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="Nunito" font-weight="700">
+          <!-- Line plot for tai chi -->
+          <line x1="60" y1="100" x2="440" y2="100" stroke="#2C2416" stroke-width="2.5"/>
+          <polygon points="55,100 60,95 60,105" fill="#2C2416"/>
+          <polygon points="445,100 440,95 440,105" fill="#2C2416"/>
+
+          <g text-anchor="middle" font-size="14" font-family="Fraunces" font-weight="900">
+            <line x1="100" y1="95" x2="100" y2="105" stroke="#2C2416" stroke-width="2"/>
+            <text x="100" y="125">0</text>
+
+            <line x1="180" y1="95" x2="180" y2="105" stroke="#2C2416" stroke-width="2"/>
+            <text x="180" y="125">1/4</text>
+
+            <line x1="260" y1="95" x2="260" y2="105" stroke="#2C2416" stroke-width="2"/>
+            <text x="260" y="125">2/4</text>
+
+            <line x1="340" y1="95" x2="340" y2="105" stroke="#2C2416" stroke-width="2"/>
+            <text x="340" y="125">3/4</text>
+
+            <line x1="420" y1="95" x2="420" y2="105" stroke="#2C2416" stroke-width="2"/>
+            <text x="420" y="125">1</text>
+          </g>
+
+          <!-- Xs -->
+          <g font-size="20" font-weight="900" text-anchor="middle" fill="#D7456E">
+            <text x="180" y="92">×</text>
+            <text x="260" y="92">×</text>
+            <text x="260" y="72">×</text>
+            <text x="340" y="92">×</text>
+            <text x="340" y="72">×</text>
+          </g>
+
+          <text x="250" y="155" text-anchor="middle" font-size="13">Number of Hours</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="example">
+      <div class="example-label">★ Total Hours from the Plot</div>
+      <p>1 X at 1/4 + 2 Xs at 2/4 + 2 Xs at 3/4</p>
+      <p>= 1/4 + 2/4 + 2/4 + 3/4 + 3/4</p>
+      <p>= <span class="math">11/4 hours</span> ✓</p>
+    </div>
+
+    <div class="tip">
+      <div class="tip-label">★ Reading Carefully</div>
+      <p>Count the Xs at each spot. To find the TOTAL, add up (X count × the fraction at that spot) for every spot.</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="footer-stars">✦ ✦ ✦</div>
+    <div>You can do this, Violet!</div>
+    <div style="font-weight: 600; font-size: 14px; opacity: 0.7; margin-top: 8px;">Re-read every question. Underline what it's asking. Show your work. Check your answer. 💪</div>
+  </div>
+
+</div>
+
+</body>
+</html>
